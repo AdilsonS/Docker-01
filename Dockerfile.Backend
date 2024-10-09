@@ -1,0 +1,17 @@
+ARG versionPhyton=3.10-slim
+
+FROM python:${versionPhyton}
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y git
+RUN git clone https://github.com/fams/guess_game.git ./guess_game 
+    
+WORKDIR /app/guess_game
+
+RUN python3 -m venv venv source venv\Scripts\activate \
+    && pip install --no-cache-dir -r requirements.txt 
+
+EXPOSE 5000
+
+ENTRYPOINT ["flask", "run"]
