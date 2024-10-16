@@ -12,7 +12,6 @@ services:
       - postgresdata:/var/lib/postgresql/data
   
   back:
-    # container_name: backend
     restart: always
     build:
       context: .
