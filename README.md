@@ -12,7 +12,7 @@
     
 
 ## Escopo do projeto.
-Utilizando o jogo demo disponível em [https://github.com/fams/guess_game](https://github.com/fams/guess_game), deverá implementar uma estrutura com Docker Compose que englobe os seguintes serviços:
+Utilizando o jogo demo disponível em [https://github.com/fams/guess_game](https://github.com/fams/guess_game), deverá ser implementado uma estrutura com Docker Compose que englobe os seguintes serviços:
 - Um container para o backend em Python (Flask).
 - Um container para o banco de dados Postgres.
 - Um container NGINX atuando como proxy reverso e servindo as páginas do frontend React.
