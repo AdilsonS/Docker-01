@@ -16,6 +16,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.Backend
+      args:
+        versionPhyton: "3.10-slim"
     environment:
       - FLASK_APP=run.py
       - FLASK_DB_TYPE=postgres
@@ -35,14 +37,17 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.Frontend
+      args:
+        versionNode: "20.10.0-alpine3.18"
     environment:
       - REACT_APP_BACKEND_URL=http://localhost
     depends_on:
       - back
   
   nginx:
-    image: nginx:latest
+    container_name: nginx
     restart: always
+    image: nginx:latest
     ports:
       - "80:80"
     volumes:

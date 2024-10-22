@@ -1,5 +1,4 @@
-ARG versionPhyton=3.10-slim
-
+ARG versionPhyton
 FROM python:${versionPhyton}
 
 WORKDIR /app
