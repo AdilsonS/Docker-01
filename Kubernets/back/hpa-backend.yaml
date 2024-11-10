@@ -1,10 +1,10 @@
-apiVersion: v1
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: backend-hpa
 spec:
   scaleTargetRef:
-    apiVersion: v1
+    apiVersion: apps/v1
     kind: Deployment
     name: backend
   minReplicas: 2
