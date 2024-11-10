@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  # replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: adilson90/my-backend:latest
+          env:
+            - name: FLASK_APP
+              value: "run.py"
+            - name: FLASK_DB_TYPE
+              value: "postgres"
+            - name: FLASK_DB_USER
+              value: "postgres"
+            - name: FLASK_DB_NAME
+              value: "postgres"
+            - name: FLASK_DB_PASSWORD
+              value: "secretpass"
+            - name: FLASK_DB_HOST
+              value: "db-service"
+            - name: FLASK_DB_PORT
+              value: "5432"
+          ports:
+            - containerPort: 5000
